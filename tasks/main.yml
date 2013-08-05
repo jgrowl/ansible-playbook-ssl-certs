@@ -1,0 +1,9 @@
+- name: Copy over ssl certs
+  copy: src={{item}} dest=$ssl_certs_dir owner=root group=root mode=0755
+  with_fileglob:
+    - files/null/ssl/certs/*
+
+- name: Copy over ssl keys
+  copy: src={{item}} dest=$ssl_keys_dir owner=root group=root mode=0600
+  with_fileglob:
+    - files/null/ssl/keys/*

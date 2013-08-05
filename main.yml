@@ -1,0 +1,9 @@
+---
+# This Playbook deploys ssl certs and keys!
+
+- hosts: ssl-certs
+  vars_files:
+    - vars/main.yml
+  user: root
+  tasks:
+    - include: tasks/main.yml
