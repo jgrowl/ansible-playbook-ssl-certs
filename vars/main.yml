@@ -1,5 +1,5 @@
 ssl_certs_dest_dir: /etc/ssl/certs
 ssl_keys_dest_dir: /etc/ssl/private
 
-ssl_certs_src_dir: files/null/ssl/certs/
-ssl_keys_src_dir: files/null/ssl/keys/
+ssl_certs_src_glob: files/null/ssl/certs/
+ssl_keys_src_glob: files/null/ssl/keys/
