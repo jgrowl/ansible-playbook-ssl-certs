@@ -1,9 +1,21 @@
+#- name: Copy over ssl certs
+#  copy: src={{item}} dest=$ssl_certs_dir owner=root group=root mode=0755
+#  with_fileglob:
+#    - files/null/ssl/certs/*
+#
+#- name: Copy over ssl keys
+#  copy: src={{item}} dest=$ssl_keys_dir owner=root group=root mode=0600
+#  with_fileglob:
+#    - files/null/ssl/keys/*
+#
 - name: Copy over ssl certs
-  copy: src={{item}} dest=$ssl_certs_dir owner=root group=root mode=0755
+  copy: src={{item}} dest=$ssl_certs_dest_dir owner=root group=root mode=0755
   with_fileglob:
-    - files/null/ssl/certs/*
+    #- files/null/ssl/certs/*
+    - $ssl_certs_src_dir/*
 
-- name: Copy over ssl keys
-  copy: src={{item}} dest=$ssl_keys_dir owner=root group=root mode=0600
+- name: Copy over ssl keys 
+  copy: src={{item}} dest=$ssl_keys_dest_dir owner=root group=root mode=0600
   with_fileglob:
-    - files/null/ssl/keys/*
+    #- files/null/ssl/keys/*
+    - $ssl_keys_src_dir/*
